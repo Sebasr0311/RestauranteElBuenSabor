@@ -84,8 +84,7 @@ public class RestauranteElBuenSabor {
                 System.out.println();
                 if (Utilidades.hayProductosEnPedido(pedido)) {
                     Factura factura = new Factura(pedido, numeroFactura);
-                    Proceso proceso = new Proceso(factura);
-                    proceso.calcularTotalFactura();
+                    factura.calcularTotal();
                     facturaImpresor.imprimirFacturaCompleta(factura);
                     numeroFactura = numeroFactura + 1;
                     mesa.desactivar();
