@@ -86,7 +86,7 @@ public class RestauranteElBuenSabor {
                     Factura factura = new Factura(pedido, numeroFactura);
                     factura.calcularTotal();
                     facturaImpresor.imprimirFacturaCompleta(factura);
-                    numeroFactura = numeroFactura + 1;
+                    numeroFactura++;
                     mesa.desactivar();
                     System.out.println();
                 } else {
@@ -105,7 +105,7 @@ public class RestauranteElBuenSabor {
                 System.out.println("Hasta luego!");
             } else {
                 System.out.println("Opcion no valida. Seleccione entre 0 y 5.");
-                intentosInvalidos = intentosInvalidos + 1;
+                intentosInvalidos++;
                 if (scanner.hasNextLine()) {
                     scanner.nextLine();
                 }
