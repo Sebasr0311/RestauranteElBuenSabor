@@ -122,7 +122,7 @@ System.out.println("Hasta luego!");
 System.out.println("Opcion no valida. Seleccione entre 0 y 5.");
 x=x+1;
 // limpiar buffer con scanner principal
-if(sc.hasNextLine()) sc.nextLine();
+if (sc.hasNextLine()) sc.nextLine();
 if(x>3){
 System.out.println("Demasiados intentos invalidos.");
 x=0;
