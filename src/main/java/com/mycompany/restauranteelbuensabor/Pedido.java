@@ -9,7 +9,7 @@ public class Pedido {
 
     public void agregarItem(Producto producto, int cantidad) {
         for (ItemPedido item : items) {
-            if (item.getProducto().getNombre().equals(producto.getNombre())) {
+            if (item.getProducto().equals(producto)) {
                 item.aumentarCantidad(cantidad);
                 return;
             }

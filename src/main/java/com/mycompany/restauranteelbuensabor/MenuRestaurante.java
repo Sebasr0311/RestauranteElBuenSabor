@@ -33,6 +33,9 @@ public class MenuRestaurante {
     }
 
     public Producto getProductoPorNumero(int numeroProducto) {
+        if (numeroProducto <= 0 || numeroProducto > productos.size()) {
+            throw new IllegalArgumentException("Numero de producto fuera de rango: " + numeroProducto);
+        }
         return productos.get(numeroProducto - 1);
     }
 }
