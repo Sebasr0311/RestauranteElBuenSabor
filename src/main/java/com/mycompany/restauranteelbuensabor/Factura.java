@@ -58,10 +58,7 @@ public class Factura {
     public double calcularTotal() {
         double subtotalConDescuento = calcularSubtotalConDescuento();
         double iva = calcularIVA(subtotalConDescuento);
-        double propina = 0;
-        if (subtotalConDescuento > UMBRAL_PROPINA) {
-            propina = (subtotalConDescuento + iva) * TASA_PROPINA;
-        }
+        double propina = calcularPropina();
         return subtotalConDescuento + iva + propina;
     }
 }

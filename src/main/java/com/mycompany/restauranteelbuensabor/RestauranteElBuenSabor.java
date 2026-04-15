@@ -96,7 +96,8 @@ public class RestauranteElBuenSabor {
                 }
             } else if (opcionMenu == 5) {
                 System.out.println();
-                Utilidades.reiniciar(pedido, mesa);
+                pedido.limpiar();
+                mesa.reiniciar();
                 System.out.println("Mesa reiniciada. Lista para nuevo cliente.");
                 System.out.println();
             } else if (opcionMenu == 0) {
