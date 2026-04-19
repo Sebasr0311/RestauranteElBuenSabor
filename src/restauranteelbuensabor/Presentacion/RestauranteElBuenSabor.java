@@ -17,7 +17,6 @@ public class RestauranteElBuenSabor {
         Mesa mesa = new Mesa();
         FacturaImpresor facturaImpresor = new FacturaImpresor(menuRestaurante);
 
-        //  Servicio (capa de aplicación)
         ServicioFacturacion servicio = new ServicioFacturacion(
                 menuRestaurante,
                 facturaImpresor,
@@ -64,17 +63,12 @@ public class RestauranteElBuenSabor {
                     System.out.print("Cantidad: ");
                     int cantidad = scanner.nextInt();
 
+                    System.out.print("Numero de mesa: ");
+                    int numeroMesa = scanner.nextInt();
+
                     try {
-                        if (!mesa.getEstadoMesa()) {
-                            System.out.print("Ingrese numero de mesa: ");
-                            int numeroMesa = scanner.nextInt();
-                            servicio.agregarProducto(numeroProducto, cantidad, numeroMesa);
-                        } else {
-                            servicio.agregarProducto(numeroProducto, cantidad, mesa.getNumeroMesaActual());
-                        }
-
+                        servicio.agregarProducto(numeroProducto, cantidad, numeroMesa);
                         System.out.println("Producto agregado al pedido.");
-
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
@@ -140,3 +134,4 @@ public class RestauranteElBuenSabor {
         scanner.close();
     }
 }
+
