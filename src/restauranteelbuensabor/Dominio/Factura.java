@@ -1,6 +1,7 @@
 package restauranteelbuensabor.Dominio;
 
 public class Factura {
+
     private static final double TASA_IVA = 0.19;
     private static final double TASA_PROPINA = 0.10;
     private static final double TASA_DESCUENTO = 0.05;
@@ -13,14 +14,6 @@ public class Factura {
     public Factura(Pedido pedido, int numeroFactura) {
         this.pedido = pedido;
         this.numeroFactura = numeroFactura;
-    }
-
-    public Pedido getPedido() {
-        return pedido;
-    }
-
-    public int getNumeroFactura() {
-        return numeroFactura;
     }
 
     public double calcularSubtotal() {
@@ -38,27 +31,35 @@ public class Factura {
         return calcularSubtotal() - calcularDescuento();
     }
 
+    // El IVA se calcula sobre el subtotal después de aplicar descuentos
     public double calcularIVA() {
-        return calcularIVA(calcularSubtotalConDescuento());
+        return calcularSubtotalConDescuento() * TASA_IVA;
     }
 
-    public double calcularIVA(double base) {
-        return base * TASA_IVA;
-    }
-
+    // La propina aplica solo si el consumo supera el umbral definido.
+    // Se calcula sobre el total con IVA incluido.
     public double calcularPropina() {
-        double subtotalConDescuento = calcularSubtotalConDescuento();
-        if (subtotalConDescuento > UMBRAL_PROPINA) {
-            double baseConIva = subtotalConDescuento + calcularIVA(subtotalConDescuento);
-            return baseConIva * TASA_PROPINA;
+        double base = calcularSubtotalConDescuento();
+        if (base > UMBRAL_PROPINA) {
+            double totalConIva = base + calcularIVA();
+            return totalConIva * TASA_PROPINA;
         }
         return 0;
     }
 
+    // El total incluye subtotal con descuento, IVA y propina (si aplica)
     public double calcularTotal() {
-        double subtotalConDescuento = calcularSubtotalConDescuento();
-        double iva = calcularIVA(subtotalConDescuento);
+        double base = calcularSubtotalConDescuento();
+        double iva = calcularIVA();
         double propina = calcularPropina();
-        return subtotalConDescuento + iva + propina;
+        return base + iva + propina;
+    }
+
+    public Pedido getPedido() {
+        return pedido;
+    }
+
+    public int getNumeroFactura() {
+        return numeroFactura;
     }
 }

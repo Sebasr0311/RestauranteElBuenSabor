@@ -1,10 +1,6 @@
 package restauranteelbuensabor.Aplicacion;
 
-import restauranteelbuensabor.Dominio.Factura;
-import restauranteelbuensabor.Dominio.MenuRestaurante;
-import restauranteelbuensabor.Dominio.Mesa;
-import restauranteelbuensabor.Dominio.Pedido;
-import restauranteelbuensabor.Dominio.Producto;
+import restauranteelbuensabor.Dominio.*;
 import restauranteelbuensabor.Infraestructura.FacturaImpresor;
 
 public class ServicioFacturacion {
@@ -21,6 +17,8 @@ public class ServicioFacturacion {
         this.numeroFactura = 1;
     }
 
+    // Coordina la validación y agregación de productos al pedido.
+    // También gestiona la activación de la mesa si aún no está en uso.
     public void agregarProducto(int numeroProducto, int cantidad, int numeroMesa) {
 
         if (numeroProducto <= 0 || numeroProducto > menuRestaurante.getCantidadProductos()) {
