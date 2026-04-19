@@ -10,24 +10,19 @@ import restauranteelbuensabor.Infraestructura.FacturaImpresor;
 public class ServicioFacturacion {
 
     private final MenuRestaurante menuRestaurante;
-    private final FacturaImpresor facturaImpresor;
     private final Pedido pedido;
     private final Mesa mesa;
     private int numeroFactura;
 
     public ServicioFacturacion(MenuRestaurante menuRestaurante, FacturaImpresor facturaImpresor, Pedido pedido, Mesa mesa) {
         this.menuRestaurante = menuRestaurante;
-        this.facturaImpresor = facturaImpresor;
         this.pedido = pedido;
         this.mesa = mesa;
         this.numeroFactura = 1;
     }
 
-    public void mostrarCarta() {
-        facturaImpresor.mostrarCarta();
-    }
-
     public void agregarProducto(int numeroProducto, int cantidad, int numeroMesa) {
+
         if (numeroProducto <= 0 || numeroProducto > menuRestaurante.getCantidadProductos()) {
             throw new IllegalArgumentException("Producto no existe.");
         }
@@ -48,11 +43,8 @@ public class ServicioFacturacion {
         return pedido.tieneProductos();
     }
 
-    public void mostrarPedido() {
-        facturaImpresor.mostrarPedido(pedido);
-    }
-
     public Factura generarFactura() {
+
         if (!pedido.tieneProductos()) {
             throw new IllegalStateException("No hay productos en el pedido.");
         }
@@ -60,6 +52,7 @@ public class ServicioFacturacion {
         Factura factura = new Factura(pedido, numeroFactura);
         numeroFactura++;
         mesa.desactivar();
+
         return factura;
     }
 
@@ -70,5 +63,9 @@ public class ServicioFacturacion {
 
     public int getCantidadProductosMenu() {
         return menuRestaurante.getCantidadProductos();
+    }
+
+    public Pedido obtenerPedido() {
+        return pedido;
     }
 }

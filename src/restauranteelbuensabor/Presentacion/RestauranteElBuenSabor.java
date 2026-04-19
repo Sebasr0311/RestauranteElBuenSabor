@@ -50,7 +50,7 @@ public class RestauranteElBuenSabor {
             switch (opcionMenu) {
 
                 case 1:
-                    servicio.mostrarCarta();
+                    facturaImpresor.mostrarCarta();
                     System.out.println();
                     break;
 
@@ -80,7 +80,7 @@ public class RestauranteElBuenSabor {
                     System.out.println();
 
                     if (servicio.tieneProductosEnPedido()) {
-                        servicio.mostrarPedido();
+                        facturaImpresor.mostrarPedido(servicio.obtenerPedido());
                     } else {
                         System.out.println("No hay productos en el pedido actual.");
                         System.out.println("Use la opcion 2 para agregar productos.");
