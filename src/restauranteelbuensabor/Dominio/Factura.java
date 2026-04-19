@@ -1,4 +1,4 @@
-package com.mycompany.restauranteelbuensabor;
+package restauranteelbuensabor.Dominio;
 
 public class Factura {
     private static final double TASA_IVA = 0.19;

@@ -1,4 +1,4 @@
-package com.mycompany.restauranteelbuensabor;
+package restauranteelbuensabor.Dominio;
 
 import java.util.Objects;
 

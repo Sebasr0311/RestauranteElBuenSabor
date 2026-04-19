@@ -7,7 +7,7 @@
     <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>21</maven.compiler.release>
-        <exec.mainClass>com.mycompany.restauranteelbuensabor.RestauranteElBuenSabor</exec.mainClass>
+        <maven.compiler.release>25</maven.compiler.release>
+        <exec.mainClass>restauranteelbuensabor.Presentacion.RestauranteElBuenSabor</exec.mainClass>
     </properties>
 </project>

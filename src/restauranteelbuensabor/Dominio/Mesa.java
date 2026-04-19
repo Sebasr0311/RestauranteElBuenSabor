@@ -1,4 +1,4 @@
-package com.mycompany.restauranteelbuensabor;
+package restauranteelbuensabor.Dominio;
 
 public class Mesa {
     private int numeroMesaActual;

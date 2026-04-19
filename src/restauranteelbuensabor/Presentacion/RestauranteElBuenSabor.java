@@ -1,4 +1,8 @@
-package com.mycompany.restauranteelbuensabor;
+package restauranteelbuensabor.Presentacion;
+
+import restauranteelbuensabor.*;
+import restauranteelbuensabor.Dominio.*;
+import restauranteelbuensabor.Infraestructura.FacturaImpresor;
 
 import java.util.Scanner;
 

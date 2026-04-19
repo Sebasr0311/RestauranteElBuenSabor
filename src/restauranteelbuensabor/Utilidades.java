@@ -1,4 +1,6 @@
-package com.mycompany.restauranteelbuensabor;
+package restauranteelbuensabor;
+
+import restauranteelbuensabor.Dominio.Pedido;
 
 public class Utilidades {
     private Utilidades() {

@@ -1,4 +1,10 @@
-package com.mycompany.restauranteelbuensabor;
+package restauranteelbuensabor.Infraestructura;
+
+import restauranteelbuensabor.Dominio.ItemPedido;
+import restauranteelbuensabor.Dominio.Pedido;
+import restauranteelbuensabor.Dominio.Producto;
+import restauranteelbuensabor.Dominio.Factura;
+import restauranteelbuensabor.Dominio.MenuRestaurante;
 
 public class FacturaImpresor {
     private static final String SEPARADOR = "========================================";
